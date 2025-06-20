@@ -1,0 +1,313 @@
+/* Основные стили */
+:root {
+    --primary-color: #1E1E1E;
+    --secondary-color: #252525;
+    --accent-color: #6E56CF;
+    --text-color: #FFFFFF;
+    --text-secondary: #AAAAAA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Шапка сайта */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(30, 30, 30, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Главный экран */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1E1E1E 0%, #121212 100%);
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(110, 86, 207, 0.3);
+}
+
+/* Секция "Обо мне" */
+.about {
+    background-color: var(--secondary-color);
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+.achievements {
+    list-style-position: inside;
+    margin-top: 20px;
+}
+
+.achievements li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.achievements li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Секция "Навыки" */
+.skills-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.skill {
+    margin-bottom: 30px;
+}
+
+.skill-name {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color) 0%, #9F7AFF 100%);
+    border-radius: 5px;
+    width: 0; /* Начальная ширина для анимации */
+}
+
+/* Секция "Контакты" */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.contact-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    margin-right: 20px;
+}
+
+.contact-info h3 {
+    margin-bottom: 5px;
+}
+
+/* Подвал сайта */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--secondary-color);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(110, 86, 207, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(110, 86, 207, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(110, 86, 207, 0);
+    }
+}
+
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(110, 86, 207, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(110, 86, 207, 0.8);
+    }
+}
+
+.animate-text {
+    animation: textGlow 3s infinite;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 20px;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
