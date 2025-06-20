@@ -40,7 +40,7 @@ h2 {
 /* Шапка сайта */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 20px;
     background-color: rgba(30, 30, 30, 0.9);
@@ -49,12 +49,22 @@ header {
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    gap: 100px;
+}
+
+logo {
+    margin-left: 50px; /* Смещение логотипа вправо */
 }
 
 .logo img {
-    height: 100px; /* Увеличенный размер логотипа */
+    height: 120px; /* Увеличенный размер логотипа */
     width: auto;
     border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Небольшое увеличение при наведении */
 }
 
 nav ul {
