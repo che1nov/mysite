@@ -5,6 +5,7 @@
     --accent-color: #6E56CF;
     --text-color: #FFFFFF;
     --text-secondary: #AAAAAA;
+    --header-height: 140px; /* Переменная для высоты шапки */
 }
 
 * {
@@ -24,7 +25,8 @@ section {
     padding: 80px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center; /* Центрирование текста */
+    text-align: center;
+    padding-top: var(--header-height); /* Добавляем отступ сверху равный высоте шапки */
 }
 
 h1, h2, h3 {
@@ -40,7 +42,7 @@ h2 {
 /* Шапка сайта */
 header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between; /* Возвращаем space-between для корректного распределения */
     align-items: center;
     padding: 20px;
     background-color: rgba(30, 30, 30, 0.9);
@@ -49,22 +51,22 @@ header {
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    gap: 100px;
+    height: var(--header-height); /* Фиксированная высота шапки */
 }
 
-logo {
-    margin-left: 50px; /* Смещение логотипа вправо */
+.logo { /* ИСПРАВЛЕНО: добавлена точка перед классом */
+    margin-left: 50px;
 }
 
 .logo img {
-    height: 120px; /* Увеличенный размер логотипа */
+    height: 120px;
     width: auto;
     border-radius: 50%;
     transition: transform 0.3s ease;
 }
 
 .logo img:hover {
-    transform: scale(1.1); /* Небольшое увеличение при наведении */
+    transform: scale(1.1);
 }
 
 nav ul {
@@ -105,17 +107,18 @@ nav ul li a:hover::after {
 
 /* Главный экран */
 .hero {
-    height: 100vh;
+    min-height: 100vh; /* Изменено с height на min-height */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: linear-gradient(135deg, #1E1E1E 0%, #121212 100%);
-    padding-top: 80px;
+    padding-top: var(--header-height); /* Используем переменную */
 }
 
 .hero-content {
     max-width: 800px;
+    padding: 20px; /* Добавляем внутренние отступы */
 }
 
 .hero h1 {
@@ -158,19 +161,19 @@ nav ul li a:hover::after {
 .about-content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирование по горизонтали */
-    justify-content: center; /* Центрирование по вертикали */
+    align-items: center;
+    justify-content: center;
 }
 
 .about-text {
     max-width: 800px;
-    text-align: center; /* Центрирование текста */
+    text-align: center;
 }
 
 .achievements {
-    list-style-type: none; /* Убираем стандартные маркеры */
+    list-style-type: none;
     margin-top: 20px;
-    padding-left: 0; /* Убираем отступ слева */
+    padding-left: 0;
     width: 100%;
     text-align: center;
 }
@@ -178,7 +181,7 @@ nav ul li a:hover::after {
 .achievements li {
     margin-bottom: 10px;
     position: relative;
-    display: inline-block;
+    display: block; /* Изменено с inline-block на block */
     width: 100%;
     text-align: center;
     padding-left: 0;
@@ -194,17 +197,18 @@ nav ul li a:hover::after {
 /* Секция "Навыки" */
 .skills-container {
     max-width: 800px;
-    margin: 0 auto; /* Центрирование блока */
+    margin: 0 auto;
 }
 
 .skill {
     margin-bottom: 30px;
-    text-align: center; /* Центрирование текста */
+    text-align: left; /* Изменено для лучшей читаемости */
 }
 
 .skill-name {
     margin-bottom: 10px;
     font-weight: 700;
+    text-align: center; /* Название навыка по центру */
 }
 
 .skill-bar {
@@ -218,17 +222,17 @@ nav ul li a:hover::after {
     height: 100%;
     background: linear-gradient(90deg, var(--accent-color) 0%, #9F7AFF 100%);
     border-radius: 5px;
-    width: 0; /* Начальная ширина для анимации */
+    width: 0;
 }
 
 /* Секция "Контакты" */
 .contact-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Центрирование по горизонтали */
+    justify-content: center;
     gap: 30px;
     max-width: 1000px;
-    margin: 0 auto; /* Центрирование блока */
+    margin: 0 auto;
 }
 
 .contact-item {
@@ -236,8 +240,8 @@ nav ul li a:hover::after {
     padding: 30px;
     border-radius: 10px;
     display: flex;
-    flex-direction: column; /* Изменяем на вертикальное расположение */
-    align-items: center; /* Центрирование содержимого */
+    flex-direction: column;
+    align-items: center;
     width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -249,12 +253,12 @@ nav ul li a:hover::after {
 
 .contact-icon {
     font-size: 2rem;
-    margin-bottom: 15px; /* Отступ снизу вместо справа */
-    margin-right: 0; /* Убираем отступ справа */
+    margin-bottom: 15px;
+    margin-right: 0;
 }
 
 .contact-info {
-    text-align: center; /* Центрирование текста */
+    text-align: center;
 }
 
 .contact-info h3 {
@@ -324,22 +328,92 @@ footer {
 }
 
 /* Адаптивность */
-@media (max-width: 768px) {
-    .logo {
-        margin-left: 20px; /* Уменьшаем смещение на мобильных */
+@media (max-width: 1024px) {
+    :root {
+        --header-height: 100px; /* Уменьшаем высоту шапки для планшетов */
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
     }
     
     .logo img {
-        height: 60px; /* Уменьшаем размер логотипа на мобильных */
-    }
-    
-    header {
-        padding: 15px 20px; /* Уменьшаем отступы */
-        flex-direction: column;
-    }
-    
-    nav ul {
-        margin-top: 15px;
+        height: 80px;
     }
 }
 
+@media (max-width: 768px) {
+    :root {
+        --header-height: 140px; /* Увеличиваем для мобильных из-за вертикального расположения */
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 10px 20px;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .logo {
+        margin-left: 0; /* Убираем смещение на мобильных */
+        margin-bottom: 10px;
+    }
+    
+    .logo img {
+        height: 60px;
+    }
+    
+    nav ul {
+        margin-top: 0;
+        gap: 10px;
+    }
+    
+    nav ul li {
+        margin-left: 0;
+        margin: 0 5px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-item {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 60px 15px;
+    }
+    
+    .hero-content {
+        padding: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero h2 {
+        font-size: 1.3rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}
