@@ -52,7 +52,7 @@ header {
 }
 
 .logo img {
-    height: 80px; /* Увеличенный размер логотипа */
+    height: 100px; /* Увеличенный размер логотипа */
     width: auto;
     border-radius: 50%;
 }
