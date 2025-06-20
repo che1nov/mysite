@@ -325,29 +325,21 @@ footer {
 
 /* Адаптивность */
 @media (max-width: 768px) {
+    .logo {
+        margin-left: 20px; /* Уменьшаем смещение на мобильных */
+    }
+    
+    .logo img {
+        height: 60px; /* Уменьшаем размер логотипа на мобильных */
+    }
+    
     header {
+        padding: 15px 20px; /* Уменьшаем отступы */
         flex-direction: column;
     }
     
     nav ul {
-        margin-top: 20px;
-    }
-    
-    nav ul li {
-        margin: 0 10px;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .contact-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .contact-item {
-        width: 100%;
-        max-width: 300px;
+        margin-top: 15px;
     }
 }
+
