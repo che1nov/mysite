@@ -24,6 +24,7 @@ section {
     padding: 80px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    text-align: center; /* Центрирование текста */
 }
 
 h1, h2, h3 {
@@ -51,7 +52,8 @@ header {
 }
 
 .logo img {
-    height: 100px;
+    height: 80px; /* Увеличенный размер логотипа */
+    width: auto;
     border-radius: 50%;
 }
 
@@ -145,16 +147,20 @@ nav ul li a:hover::after {
 
 .about-content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
 }
 
 .about-text {
-    max-width: 600px;
+    max-width: 800px;
+    text-align: center; /* Центрирование текста */
 }
 
 .achievements {
-    list-style-position: inside;
+    list-style-position: inside; /* Маркеры списка внутри */
     margin-top: 20px;
+    padding-left: 0; /* Убираем отступ слева */
 }
 
 .achievements li {
@@ -172,12 +178,13 @@ nav ul li a:hover::after {
 
 /* Секция "Навыки" */
 .skills-container {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto; /* Центрирование блока */
 }
 
 .skill {
     margin-bottom: 30px;
+    text-align: center; /* Центрирование текста */
 }
 
 .skill-name {
@@ -203,8 +210,10 @@ nav ul li a:hover::after {
 .contact-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; /* Центрирование по горизонтали */
     gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto; /* Центрирование блока */
 }
 
 .contact-item {
@@ -212,7 +221,8 @@ nav ul li a:hover::after {
     padding: 30px;
     border-radius: 10px;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Изменяем на вертикальное расположение */
+    align-items: center; /* Центрирование содержимого */
     width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -224,7 +234,12 @@ nav ul li a:hover::after {
 
 .contact-icon {
     font-size: 2rem;
-    margin-right: 20px;
+    margin-bottom: 15px; /* Отступ снизу вместо справа */
+    margin-right: 0; /* Убираем отступ справа */
+}
+
+.contact-info {
+    text-align: center; /* Центрирование текста */
 }
 
 .contact-info h3 {
@@ -288,6 +303,11 @@ footer {
     animation: pulse 2s infinite;
 }
 
+/* Анимация появления блоков */
+.about-content, .skills-container, .contact-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     header {
@@ -309,5 +329,10 @@ footer {
     .contact-container {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .contact-item {
+        width: 100%;
+        max-width: 300px;
     }
 }
