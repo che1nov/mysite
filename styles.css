@@ -158,22 +158,27 @@ nav ul li a:hover::after {
 }
 
 .achievements {
-    list-style-position: inside; /* Маркеры списка внутри */
+    list-style-type: none; /* Убираем стандартные маркеры */
     margin-top: 20px;
     padding-left: 0; /* Убираем отступ слева */
+    width: 100%;
+    text-align: center;
 }
 
 .achievements li {
     margin-bottom: 10px;
     position: relative;
-    padding-left: 25px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
 }
 
 .achievements li::before {
     content: '✓';
-    position: absolute;
-    left: 0;
     color: var(--accent-color);
+    margin-right: 10px;
+    display: inline-block;
 }
 
 /* Секция "Навыки" */
